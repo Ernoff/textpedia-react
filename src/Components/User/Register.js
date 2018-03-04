@@ -85,8 +85,8 @@ class CreateUser extends Component {
                         <p>Please confim the validity of the following details before submitting, if there's an error you can use the 'Edit' button to make any changes.</p>
 
                         <Well bsSize="large">
-                            <p>Your phone number: +2347035039214</p>
-                            <p>Your email address: nanipaul68@gmail.com</p>
+                            <p>Your phone number: </p>
+                            <p>Your email address: </p>
                         </Well>                       
 
                         <p>If everything looks ok, please submit the form. We will send a token to the email address you've provided.</p>
@@ -96,7 +96,7 @@ class CreateUser extends Component {
                         <p><strong>The token is valid for 5 minutes only!</strong></p>
                     </Modal.Body>
                     <Modal.Footer>
-                        <Button onClick={this.handleClose}>Close</Button>
+                        <Button onClick={this.handleModalClose}>Close</Button>
                     </Modal.Footer>
                 </Modal>               
             </div>
@@ -110,7 +110,7 @@ class CreateUser extends Component {
             phonenumber
         } = this.state
 
-        await axios.post('http://demo3670831.mockable.io/textpedia/signup', { phonenumber, email }).then((result) => {
+        await axios.post('https://textpedia-clone.herokuapp.com/register', { phonenumber, email }).then((result) => {
             this.props.history.push("/")
             console.log(result)
         });
