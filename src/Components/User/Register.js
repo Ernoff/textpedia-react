@@ -85,8 +85,8 @@ class CreateUser extends Component {
                         <p>Please confim the validity of the following details before submitting, if there's an error you can use the 'Edit' button to make any changes.</p>
 
                         <Well bsSize="large">
-                            <p>Your phone number: </p>
-                            <p>Your email address: </p>
+                            <p>Your phone number: {this.state.phonenumber}</p>
+                            <p>Your email address: {this.state.email}</p>
                         </Well>                       
 
                         <p>If everything looks ok, please submit the form. We will send a token to the email address you've provided.</p>
