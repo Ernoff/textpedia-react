@@ -96,7 +96,7 @@ class CreateUser extends Component {
                         <p><strong>The token is valid for 5 minutes only!</strong></p>
                     </Modal.Body>
                     <Modal.Footer>
-                        <Button onClick={this.handleModalClose}>Close</Button>
+                        <Button onClick={(e) = >this._createUser(e)}>Register</Button>
                     </Modal.Footer>
                 </Modal>               
             </div>
