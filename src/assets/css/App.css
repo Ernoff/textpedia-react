@@ -55,7 +55,7 @@ body {
 	color: #00a84f;
 	display: block;
 	font: 1.125rem 'Oswald', Arial, sans-serif; /*18*/
-	height: 80px;
+	height: 60px;
 	letter-spacing: 1px;
 	margin: 0 auto;
 	padding: 4px;
@@ -83,4 +83,15 @@ body {
 
 .btn-round:hover span {
 	background: transparent;
+}
+
+.textpedia-input {
+  border-radius: 50px;
+  height: 60px;
+  padding: 5px 5px;
+}
+
+.textpedia-label {
+  color: #ffffff;
+  font-size: 20px;
 }

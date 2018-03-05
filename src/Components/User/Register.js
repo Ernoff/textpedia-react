@@ -26,13 +26,13 @@ class CreateUser extends Component {
         }        
     }
 
-    getValidationState = () => {
-        const length = this.state.phonenumber.length;
-        if (length > 10) return 'success';
-        else if (length > 5) return 'warning';
-        else if (length > 0) return 'error';
-        return null;
-    }
+    // getValidationState = () => {
+    //     const length = this.state.phonenumber.length;
+    //     if (length > 10) return 'success';
+    //     else if (length > 5) return 'warning';
+    //     else if (length > 0) return 'error';
+    //     return null;
+    // }
 
     handleChangePhone = (e) => {
         this.setState({ phonenumber: e.target.value });
@@ -55,27 +55,30 @@ class CreateUser extends Component {
             <div className="container">
                 <div className="col-md-6 col-md-offset-3">
                     <form >                        
-                        <h3>Sign Up!</h3>
+                        <h3 className="textpedia-lg">Sign Up!</h3>
                         <FormGroup validationState={this.getValidationState()}>
-                            <ControlLabel>Phone Number</ControlLabel>
+                            <ControlLabel className="textpedia-label">Phone Number</ControlLabel>
                             <FormControl
+                                className="textpedia-input"
                                 // preferredCountries={['ng']}
                                 // css={['intl-tel-input', 'form-control']}
                                 // utilsScript={'libphonenumber.js'}
-                                onChange={this.handleChangePhone}
+                                // onChange={this.handleChangePhone}
                                 value={this.state.phonenumber}
                                 placeholder="Enter Phone Number"
                                 type="number" />
                         </FormGroup>
                         <FormGroup validationState={this.getValidationState()}>
-                            <ControlLabel>Email Address</ControlLabel>
+                            <ControlLabel className="textpedia-label">Email Address</ControlLabel>
                             <FormControl
                                 type="email"
+                                className="textpedia-input"
                                 value={this.state.value}
                                 placeholder="Enter Email"
-                                onChange={this.handleChangeEmail}/>
+                                // onChange={this.handleChangeEmail}
+                                />
                         </FormGroup>
-                        <Button className="btn btn-primary pull-right" onClick={this.handleModalShow}>Go!</Button>
+                        <Button className="btn-round" onClick={this.handleModalShow}>Go!</Button>
                     </form>
                 </div>
                 <Modal show={this.state.show} onHide={this.handleModalClose}>
@@ -111,7 +114,7 @@ class CreateUser extends Component {
             phonenumber
         } = this.state
 
-        await axios.post('https://textpedia-clone.herokuapp.com/register', { phonenumber, email }).then((result) => {
+        await axios.post('https://textpedia-api.herokuapp.com/submit', { phonenumber, email }).then((result) => {
             this.props.history.push("/")
             console.log(result)
         });

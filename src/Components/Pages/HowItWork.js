@@ -7,7 +7,7 @@ class HowItWork extends Component {
         return (
             <div className="row">
                 <div className="container">
-                    <div className="col-md-6">
+                    <div className="col-md-6 text-white">
                         <h3>How it works!</h3>
                         <p>Using Textpedia is as simple as 1 - 2 - 3!</p>
                         <p></p>
@@ -49,11 +49,10 @@ class HowItWork extends Component {
                             Finally, ensure that the keywords are spelled correctly, while Tetxpedia queries are
                             case insensitive, at this time spell checking is not available. Enjoy the Textpedia service.
                         </p>
-                    </div>
-                    
+                    </div>                    
                 </div>
                 <div className="container">
-                    <Link to="/sign-up" className="btn btn-primary btn-default btn-block">
+                    <Link to="/sign-up" className="btn-round">
                         Sign up!
                     </Link>
                 </div>
