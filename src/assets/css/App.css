@@ -1,3 +1,4 @@
+
 .App {
   text-align: center;
 }
@@ -110,4 +111,14 @@ body {
 
 .tp-white {
   color: #ffffff;
+}
+
+.navbar-nav>li>a {
+    line-height: 60px;
+    font-size: 16px;
+}
+
+.navbar-inverse {
+    background-color: #e7e8e9;
+    border-color: #080808;
 }
