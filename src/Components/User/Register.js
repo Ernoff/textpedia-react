@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 // import { graphql } from 'react-apollo'
-import IntlTelInput from 'react-intl-tel-input';
+// import IntlTelInput from 'react-intl-tel-input';
 import '../../../node_modules/react-intl-tel-input/dist/libphonenumber.js';
 import '../../../node_modules/react-intl-tel-input/dist/main.css';
 import { FormGroup, FormControl, ControlLabel, Button, Modal, Well } from "react-bootstrap";
@@ -58,12 +58,13 @@ class CreateUser extends Component {
                         <h3>Sign Up!</h3>
                         <FormGroup validationState={this.getValidationState()}>
                             <ControlLabel>Phone Number</ControlLabel>
-                            <IntlTelInput
-                                preferredCountries={['ng']}
-                                css={['intl-tel-input', 'form-control']}
-                                utilsScript={'libphonenumber.js'}
+                            <FormControl
+                                // preferredCountries={['ng']}
+                                // css={['intl-tel-input', 'form-control']}
+                                // utilsScript={'libphonenumber.js'}
                                 onChange={this.handleChangePhone}
-                                value={this.state.value}
+                                value={this.state.phonenumber}
+                                placeholder="Enter Phone Number"
                                 type="number" />
                         </FormGroup>
                         <FormGroup validationState={this.getValidationState()}>
@@ -96,7 +97,7 @@ class CreateUser extends Component {
                         <p><strong>The token is valid for 5 minutes only!</strong></p>
                     </Modal.Body>
                     <Modal.Footer>
-                        <Button onClick={(e) = >this._createUser(e)}>Register</Button>
+                        <Button onClick={(e) => this._createUser(e)}>Register</Button>
                     </Modal.Footer>
                 </Modal>               
             </div>

@@ -27,18 +27,26 @@ class Home extends Component {
     render() {        
         return (            
             <div className="container">
-                <Button bsStyle="default" className="btn-block" bsSize="small" onClick={this.handleShow}>
-                    What is TextPedia
-                </Button>
-                <figure>
-                    <img src={Image} className="img img-responsive" alt="pix of research" />
-                </figure>
+                <div className="text-center col-md-6 col-md-offset-3">
+                    <h2 className="textpedia-lg">What is TextPedia</h2>
+                    <h3 className="textpedia-desc">Imagine for a moment that you're in a meeting with an important client and several
+                            other participants are present. The presenter or the client mentions a word, or phrase
+                            you have only the vaguest idea about. 
+                    </h3>
+
+                    <Button bsStyle="default" className="btn-round" bsSize="small" onClick={this.handleShow}>
+
+                        <span>View more info</span>
+                    </Button>
+                </div>
+                
+                
                 <Modal show={this.state.show} onHide={this.handleClose}>
                     <Modal.Header closeButton>
                         <Modal.Title>Why Tetxpedia?</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        <p>What Textpedia is can be be understood by considering a sample use case.</p>
+                        <p>What Textpedia is can be understood by considering a sample use case.</p>
                         <p>Imagine for a moment that you're in a meeting with an important client and several
                             other participants are present. The presenter or the client mentions a word, or phrase
                             you have only the vaguest idea about. </p>

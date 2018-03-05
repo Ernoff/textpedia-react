@@ -10,9 +10,10 @@ import Home from './Pages/Home';
 class App extends Component {
   render() {
     return (
+      
       <BrowserRouter>
       <div>
-        <div className="container">
+        <div className="row">
           <Navbar />
         </div>
         <Switch>
