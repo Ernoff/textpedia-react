@@ -56,7 +56,7 @@ class CreateUser extends Component {
                 <div className="col-md-6 col-md-offset-3">
                     <form >                        
                         <h3 className="textpedia-lg">Sign Up!</h3>
-                        <FormGroup validationState={this.getValidationState()}>
+                        <FormGroup>
                             <ControlLabel className="textpedia-label">Phone Number</ControlLabel>
                             <FormControl
                                 className="textpedia-input"
@@ -68,7 +68,7 @@ class CreateUser extends Component {
                                 placeholder="Enter Phone Number"
                                 type="number" />
                         </FormGroup>
-                        <FormGroup validationState={this.getValidationState()}>
+                        <FormGroup>
                             <ControlLabel className="textpedia-label">Email Address</ControlLabel>
                             <FormControl
                                 type="email"
@@ -78,7 +78,7 @@ class CreateUser extends Component {
                                 // onChange={this.handleChangeEmail}
                                 />
                         </FormGroup>
-                        <Button className="btn-round" onClick={this.handleModalShow}>Go!</Button>
+                        <Button className="btn-round text-white" onClick={this.handleModalShow}>Go!</Button>
                     </form>
                 </div>
                 <Modal show={this.state.show} onHide={this.handleModalClose}>
