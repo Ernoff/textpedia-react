@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 // import About from './About'
 import { Button, Modal } from "react-bootstrap";
-import Image from '../../assets/img/research.jpg'
+// import Image from '../../assets/img/research.jpg'
 
 class Home extends Component {
     constructor(props, context) {

@@ -20,7 +20,7 @@ class CreateUser extends Component {
 
         this.state = {
             email: '',
-            phonenumber: '',
+            phoneNumber: '',
             error: '',
             show: false
         }        
@@ -35,7 +35,7 @@ class CreateUser extends Component {
     // }
 
     handleChangePhone = (e) => {
-        this.setState({ phonenumber: e.target.value });
+        this.setState({ phoneNumber: e.target.value });
     }
 
     handleChangeEmail = (e) => {
@@ -63,10 +63,10 @@ class CreateUser extends Component {
                                 // preferredCountries={['ng']}
                                 // css={['intl-tel-input', 'form-control']}
                                 // utilsScript={'libphonenumber.js'}
-                                // onChange={this.handleChangePhone}
+                                onChange={this.handleChangePhone}
                                 value={this.state.phonenumber}
                                 placeholder="Enter Phone Number"
-                                type="number" />
+                                type="text" />
                         </FormGroup>
                         <FormGroup>
                             <ControlLabel className="textpedia-label">Email Address</ControlLabel>
@@ -75,7 +75,7 @@ class CreateUser extends Component {
                                 className="textpedia-input"
                                 value={this.state.value}
                                 placeholder="Enter Email"
-                                // onChange={this.handleChangeEmail}
+                                onChange={this.handleChangeEmail}
                                 />
                         </FormGroup>
                         <Button className="btn-round text-white" onClick={this.handleModalShow}>Go!</Button>
@@ -89,7 +89,7 @@ class CreateUser extends Component {
                         <p>Please confim the validity of the following details before submitting, if there's an error you can use the 'Edit' button to make any changes.</p>
 
                         <Well bsSize="large">
-                            <p>Your phone number: {this.state.phonenumber}</p>
+                            <p>Your phone number: {this.state.phoneNumber}</p>
                             <p>Your email address: {this.state.email}</p>
                         </Well>                       
 
@@ -111,12 +111,29 @@ class CreateUser extends Component {
         console.log("submitting")
         const { 
             email,
-            phonenumber
+            phoneNumber
         } = this.state
 
-        await axios.post('https://textpedia-api.herokuapp.com/submit', { phonenumber, email }).then((result) => {
+        let data = JSON.stringify({
+            data: {
+                phoneNumber,
+                email
+            }
+        })
+
+        console.log(data)
+        let url = 'https://textpedia-api.herokuapp.com/submit'
+        
+        axios.post(url,data, {
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        }).then((result) => {
             this.props.history.push("/")
             console.log(result)
+        })
+        .catch((err) => {
+            alert(err)
         });
     }
 }
