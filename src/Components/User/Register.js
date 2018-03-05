@@ -6,6 +6,7 @@ import '../../../node_modules/react-intl-tel-input/dist/main.css';
 import { FormGroup, FormControl, ControlLabel, Button, Modal, Well } from "react-bootstrap";
 // import ConfirmModal from "./ConfirmModal";
 import axios from 'axios';
+import request from 'superagent';
 
 class CreateUser extends Component {
     
@@ -100,40 +101,58 @@ class CreateUser extends Component {
                         <p><strong>The token is valid for 5 minutes only!</strong></p>
                     </Modal.Body>
                     <Modal.Footer>
-                        <Button onClick={(e) => this._createUser(e)}>Register</Button>
+                        <Button onClick={() => this._createUser()}>Register</Button>
                     </Modal.Footer>
                 </Modal>               
             </div>
         )
     }
 
-    _createUser = async () => {
+    _createUser =  () => {
         console.log("submitting")
         const { 
             email,
             phoneNumber
         } = this.state
 
-        let data = JSON.stringify({
+        let data =
+        // JSON.stringify(
+            {
             data: {
                 phoneNumber,
                 email
             }
-        })
+        }
+    // )
 
         console.log(data)
         let url = 'https://textpedia-api.herokuapp.com/submit'
         
-        axios.post(url,data, {
-            headers: {
-                'Content-Type': 'application/json',
-            }
-        }).then((result) => {
-            this.props.history.push("/")
+        axios.post(url, data, {
+            // headers: {
+            //     'Accept': 'application/json',
+            //     'Content-Type': 'application/json',
+            //     'Access-Control-Allow-Origin': '*',
+            //     'Access-Control-Allow-Credentials': true,
+            //     'Access-Control-Allow-Headers': 'Content-Type, Accept, Access-Control-Allow-Origin'
+            // }
+        })
+        // let formData = new FormData();
+        // formData.append('email', this.state.email)
+        // formData.append('phoneNumber', this.state.phoneNumber)
+        // request
+        // .post(url)
+        //     .set('Access-Control-Allow-Origin', 'http://localhost:3000')
+        //     .set('Content-Type', 'text/plain')
+        //     .set('Accept', '*/*')
+        //     // .set('mode', 'cors')
+        //     .send(data)
+        .then((result) => {
+            // this.props.history.push("/")
             console.log(result)
         })
         .catch((err) => {
-            alert(err)
+            console.log(err)
         });
     }
 }
