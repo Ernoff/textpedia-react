@@ -39,7 +39,9 @@ body {
 
 .textpedia-lg {
   font-size: 50px;
-  color: #00a84f;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #e7e8e9;
 }
 
 .textpedia-desc {

@@ -28,11 +28,11 @@ class Home extends Component {
         return (            
             <div className="container">
                 <div className="text-center col-md-6 col-md-offset-3">
-                    <h2 className="textpedia-lg">What is TextPedia</h2>
-                    <h3 className="textpedia-desc">Imagine for a moment that you're in a meeting with an important client and several
+                    <h2 className="textpedia-lg">TextPedia</h2>
+                    <p className="textpedia-desc">Imagine for a moment that you're in a meeting with an important client and several
                             other participants are present. The presenter or the client mentions a word, or phrase
                             you have only the vaguest idea about. 
-                    </h3>
+                    </p>
 
                     <Button bsStyle="default" className="btn-round" bsSize="small" onClick={this.handleShow}>
 
