@@ -124,12 +124,12 @@ body {
 
 .navbar-inverse {
     background-color: #e7e8e9;
-    border-color: #080808;
+    border-bottom-color: #080808;
 }
 
 .textpedia-card {
   background-color: rgba(247, 247, 247, 0.50);
-  min-height: 400px;
+  /* min-height: 400px; */
   color: #494848;
   text-align: justify;
   padding: 5px 20px 20px 20px;
@@ -147,22 +147,51 @@ body {
 
 .tp-hiw-btn {
   background-image: linear-gradient(to right, #006175 0%, #00a950 100%);
-  display: inline-block;
+  border-radius: 40px;
+  box-sizing: border-box;
+  display: block;
   padding: 14px 25px;
   text-align: center;
   text-decoration: none;
   font-size: 16px;
   margin-left: 20px;
-  opacity: 0.9;  
-  border-radius: 40px;
-  box-sizing: border-box;
+  opacity: 0.9; 
+  
   color: #ffffff;
 	text-transform: uppercase;
-	width: 264px;
+  width: 264px;
+  border: solid 2px #e7e8e9;
 	z-index: 2;
 }
 
 .tp-hiw-btn:hover {
   color: #ffffff;
   background-image: linear-gradient(to right, #00a950 0%, #006175 100%);
+  border: solid 2px #006175;
+}
+
+.navbar-nav>li>a {
+    line-height: 60px;
+    font-size: 16px;
+}
+
+.navbar-nav > li > a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    line-height: 20px;
+}
+
+nav>li>a {
+    color: #00a950;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+  line-height: 60px;
+  color: #00a950;
+}
+
+.navbar-inverse .navbar-nav>li>a:hover {
+  color: #ffffff;
+  background-image: linear-gradient(to right, #00a950 0%, #006175 100%);
+  border-bottom: solid1px #ffffff;
 }

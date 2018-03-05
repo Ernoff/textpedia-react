@@ -11,7 +11,7 @@ class HowItWork extends Component {
                         <h3 className="textpedia-md">How it works!</h3>
                         <p className="textpedia-hiw"></p>
                     </div>
-                    <div className="col-md-6 ">
+                    <div className="col-md-12 ">
                         <div className="textpedia-card">
                             <h3 className="tp-white">Using Textpedia is as simple as 1 - 2 - 3!</h3>
                             <p></p>
@@ -34,7 +34,7 @@ class HowItWork extends Component {
                             <p></p>
                         </div>
                     </div>
-                    <div className="col-md-6">
+                    <div className="col-md-12">
                         <div className="textpedia-card">
                             <h3 className="tp-white">Example usage</h3>
                             <p></p>

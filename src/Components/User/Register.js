@@ -6,7 +6,7 @@ import '../../../node_modules/react-intl-tel-input/dist/main.css';
 import { FormGroup, FormControl, ControlLabel, Button, Modal, Well } from "react-bootstrap";
 // import ConfirmModal from "./ConfirmModal";
 import axios from 'axios';
-import request from 'superagent';
+// import request from 'superagent';
 
 class CreateUser extends Component {
     
@@ -79,7 +79,7 @@ class CreateUser extends Component {
                                 onChange={this.handleChangeEmail}
                                 />
                         </FormGroup>
-                        <Button className="btn-round text-white" onClick={this.handleModalShow}>Go!</Button>
+                        <Button className="btn-round" onClick={this.handleModalShow}>Go!</Button>
                     </form>
                 </div>
                 <Modal show={this.state.show} onHide={this.handleModalClose}>
