@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import '../../../node_modules/react-intl-tel-input/dist/libphonenumber.js';
-import '../../../node_modules/react-intl-tel-input/dist/main.css';
 import { FormGroup, FormControl, ControlLabel, Button, Modal, Well } from "react-bootstrap";
 // import ProgressButton from 'react-progress-button'
 import axios from 'axios';
@@ -123,40 +121,22 @@ class CreateUser extends Component {
         }
     // )
 
-        // console.log(data)
-        let url = 'https://textpedia-api.herokuapp.com/submit'
-        // let url = 'https://www.mockable.io/a/#space/demo8865555'
-        
+        console.log(data)
+        let url = 'https://textpedia-api.herokuapp.com/submit'        
         axios.post(url, data, {
-            // headers: {
-            //     'Accept': 'application/json',
-            //     'Content-Type': 'application/json',
-            //     'Access-Control-Allow-Origin': '*',
-            //     'Access-Control-Allow-Credentials': true,
-            //     'Access-Control-Allow-Headers': 'Content-Type, Accept, Access-Control-Allow-Origin'
-            // }
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Credentials': true,
+                'Access-Control-Allow-Headers': 'Content-Type, Accept, Access-Control-Allow-Origin'
+            }
         })
-        // let formData = new FormData();
-        // formData.append('email', this.state.email)
-        // formData.append('phoneNumber', this.state.phoneNumber)
-        // request
-        // .post(url)
-        //     .set('Access-Control-Allow-Origin', 'http://localhost:3000')
-        //     .set('Content-Type', 'text/plain')
-        //     .set('Accept', '*/*')
-        //     // .set('mode', 'cors')
-        //     .send(data)
-        .then((result) => {
-            // this.props.history.push("/")
-            // if (response.data == '/myprofile') {
-            //     console.log(this.state);
-            //     alert('Your changes have been saved');
-            // }
-            // window.location = '/confirmation';
-            console.log(result)
+        .then((result) => {            
+            console.log(result.response.data)
         })
         .catch((err) => {
-            console.log(err)
+            console.log(err.response.data)
         });
     }
 }
