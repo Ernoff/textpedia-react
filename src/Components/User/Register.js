@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
 import { FormGroup, FormControl, ControlLabel, Button, Modal, Well } from "react-bootstrap";
-// import ProgressButton from 'react-progress-button'
+import { endpoint_url, isValidEmail } from '../../utils/index';
 import axios from 'axios';
-// import request from 'superagent';
 
 class CreateUser extends Component {
     
-    constructor(props, context) {
-        super(props, context);
+    constructor() {
+        super();
 
         this.handleChangePhone = this.handleChangePhone.bind(this);
         this.handleChangeEmail = this.handleChangeEmail.bind(this); 
@@ -19,17 +18,25 @@ class CreateUser extends Component {
             email: '',
             phoneNumber: '',
             error: '',
-            show: false
+            show: false,
+            jwt: undefined
         }        
     }
 
-    // getValidationState = () => {
-    //     const length = this.state.phonenumber.length;
-    //     if (length > 10) return 'success';
-    //     else if (length > 5) return 'warning';
-    //     else if (length > 0) return 'error';
-    //     return null;
-    // }
+    getValidationState = (email, phoneNumber) => {
+        if (email.length === 0) {
+            alert('Email can not be empty')
+            return false
+        } else if (!isValidEmail.test(email)) {
+            alert('Enter a Valid Email Address')
+            return false
+        }else if(phoneNumber.length === 0) {
+            alert('Enter a Valid Phone Number')
+            return false
+        }else{
+            return true
+        }
+    }
 
     handleChangePhone = (e) => {
         this.setState({ phoneNumber: e.target.value });
@@ -48,6 +55,7 @@ class CreateUser extends Component {
     }
 
     render() {
+        const { show, phoneNumber, email } = this.state
         return (
             <div className="container">
                 <div className="col-md-6 col-md-offset-3">
@@ -57,9 +65,6 @@ class CreateUser extends Component {
                             <ControlLabel className="textpedia-label">Phone Number</ControlLabel>
                             <FormControl
                                 className="textpedia-input"
-                                // preferredCountries={['ng']}
-                                // css={['intl-tel-input', 'form-control']}
-                                // utilsScript={'libphonenumber.js'}
                                 onChange={this.handleChangePhone}
                                 value={this.state.phonenumber}
                                 placeholder="Enter Phone Number"
@@ -104,7 +109,7 @@ class CreateUser extends Component {
         )
     }
 
-    _createUser =  () => {
+    _createUser = () => {
         console.log("submitting")
         const { 
             email,
@@ -122,8 +127,7 @@ class CreateUser extends Component {
     // )
 
         console.log(data)
-        let url = 'https://textpedia-api.herokuapp.com/submit'        
-        axios.post(url, data, {
+        axios.post(endpoint_url + 'submit', data, {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
@@ -133,10 +137,19 @@ class CreateUser extends Component {
             }
         })
         .then((result) => {            
-            console.log(result.response.data)
+            console.log(result)
+            this.props.history.push('/confirmation', { result: result.data.jwt })
+            this.setState({ show: false })
         })
         .catch((err) => {
-            console.log(err)
+            console.log(err.response)
+            if (err.response.status === 409) {
+                alert(err.response.data)
+            } else {
+                alert('Ops... Server error occured')
+            }           
+            
+            this.setState({ show: false })
         });
     }
 }
