@@ -15,9 +15,9 @@ class NavBar extends Component {
                 </Navbar.Header>
                 <Navbar.Collapse>
                     <Nav>
-                        <li><Link to="/">Home</Link></li>
-                        <li><Link to="/sign-up">Sign Up</Link></li>
-                        <li><Link to="/how">How it works</Link></li>
+                        <li><Link to="/" activeClassName="active">Home</Link></li>
+                        <li><Link to="/sign-up" activeClassName="active">Sign Up</Link></li>
+                        <li><Link to="/how" activeClassName="active">How it works</Link></li>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>

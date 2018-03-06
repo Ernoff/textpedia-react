@@ -195,3 +195,8 @@ nav>li>a {
   background-image: linear-gradient(to right, #00a950 0%, #006175 100%);
   border-bottom: solid1px #ffffff;
 }
+.active {
+  color: #ffffff;
+  background-image: linear-gradient(to right, #00a950 0%, #006175 100%);
+  border: solid 2px #006175;
+}

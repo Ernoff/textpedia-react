@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
-// import { graphql } from 'react-apollo'
-// import IntlTelInput from 'react-intl-tel-input';
 import '../../../node_modules/react-intl-tel-input/dist/libphonenumber.js';
 import '../../../node_modules/react-intl-tel-input/dist/main.css';
 import { FormGroup, FormControl, ControlLabel, Button, Modal, Well } from "react-bootstrap";
-// import ConfirmModal from "./ConfirmModal";
+// import ProgressButton from 'react-progress-button'
 import axios from 'axios';
 // import request from 'superagent';
 
@@ -79,7 +77,7 @@ class CreateUser extends Component {
                                 onChange={this.handleChangeEmail}
                                 />
                         </FormGroup>
-                        <Button className="btn-round" onClick={this.handleModalShow}>Go!</Button>
+                        <Button className="btn-round" onClick={() => this._createUser()}>Go!</Button>
                     </form>
                 </div>
                 <Modal show={this.state.show} onHide={this.handleModalClose}>
@@ -125,8 +123,9 @@ class CreateUser extends Component {
         }
     // )
 
-        console.log(data)
+        // console.log(data)
         let url = 'https://textpedia-api.herokuapp.com/submit'
+        // let url = 'https://www.mockable.io/a/#space/demo8865555'
         
         axios.post(url, data, {
             // headers: {
@@ -149,6 +148,11 @@ class CreateUser extends Component {
         //     .send(data)
         .then((result) => {
             // this.props.history.push("/")
+            // if (response.data == '/myprofile') {
+            //     console.log(this.state);
+            //     alert('Your changes have been saved');
+            // }
+            // window.location = '/confirmation';
             console.log(result)
         })
         .catch((err) => {
