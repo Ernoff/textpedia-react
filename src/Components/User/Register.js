@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { FormGroup, FormControl, ControlLabel, Button, Modal, Well } from "react-bootstrap";
-import { endpoint_url, isValidEmail } from '../../utils/index'
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import { browserHistory } from 'react-router'
+import { endpoint_url, isValidEmail } from '../../utils/index';
+// import { BrowserRouter, Switch, Route } from 'react-router-dom';
+
 
 
 // import ProgressButton from 'react-progress-button'
@@ -11,8 +11,8 @@ import axios from 'axios';
 
 class CreateUser extends Component {
     
-    constructor(props, context) {
-        super(props, context);
+    constructor() {
+        super();
 
         this.handleChangePhone = this.handleChangePhone.bind(this);
         this.handleChangeEmail = this.handleChangeEmail.bind(this); 
@@ -30,13 +30,13 @@ class CreateUser extends Component {
     }
 
     getValidationState = (email, phoneNumber) => {
-        if (email.length==0) {
+        if (email.length === 0) {
             alert('Email can not be empty')
             return false
         } else if (!isValidEmail.test(email)) {
             alert('Enter a Valid Email Address')
             return false
-        }else if(phoneNumber.length==0) {
+        }else if(phoneNumber.length === 0) {
             alert('Enter a Valid Phone Number')
             return false
         }else{
@@ -71,9 +71,6 @@ class CreateUser extends Component {
                             <ControlLabel className="textpedia-label">Phone Number</ControlLabel>
                             <FormControl
                                 className="textpedia-input"
-                                // preferredCountries={['ng']}
-                                // css={['intl-tel-input', 'form-control']}
-                                // utilsScript={'libphonenumber.js'}
                                 onChange={this.handleChangePhone}
                                 value={this.state.phonenumber}
                                 placeholder="Enter Phone Number"
@@ -136,7 +133,7 @@ class CreateUser extends Component {
     // )
 
         console.log(data)
-        axios.post(endpoint_url, data, {
+        axios.post(endpoint_url + 'submit', data, {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
@@ -146,16 +143,18 @@ class CreateUser extends Component {
             }
         })
         .then((result) => {            
-            console.log(result.response.data)
-            // this.props.browserHistory.push('/Confirmation', { result: result.data.jwt })
-            // history.push('/confirmation')
-            // const path = '/confirmation'
-            // browserHistory.push(path)
+            console.log(result)
+            this.props.history.push('/confirmation', { result: result.data.jwt })
             this.setState({ show: false })
         })
         .catch((err) => {
-            console.log(err.response.data)
-            alert('Please Email and Phone Number Must be Unique')
+            console.log(err.response)
+            if (err.response.status === 409) {
+                alert(err.response.data)
+            } else {
+                alert('Ops... Server error occured')
+            }           
+            
             this.setState({ show: false })
         });
     }

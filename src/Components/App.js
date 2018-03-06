@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import '../assets/css/App.css';
-// import '../node_modules/font-awesome/css/font-awesome.min.css';
 import Navbar from "./layout/Navbar";
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import HowItWork from './Pages/HowItWork';
 import CreateUser from './User/Register';
 import Home from './Pages/Home';
 import Confirmation from './User/Confirmation';
+import Success from './User/Success'
 
 class App extends Component {
   render() {
@@ -22,6 +22,7 @@ class App extends Component {
           <Route exact path="/sign-up" component={CreateUser} />
           <Route exact path="/how" component={HowItWork} />
           <Route exact path="/confirmation" component={Confirmation} />
+          <Route exact path="/success" component={Success} />
         </Switch>
       </div>
       </BrowserRouter>
