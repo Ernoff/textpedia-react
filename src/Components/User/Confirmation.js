@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import { Modal, Button } from "react-bootstrap";
+// import { Modal, Button } from "react-bootstrap";
+import { FormGroup, FormControl, ControlLabel, Button, Modal, Well } from "react-bootstrap";
 import axios from 'axios'
-import { endpoint_url } from '../utils/index'
+import { endpoint_url } from '../../utils/index'
 
-class Example extends React.Component {
+class Confirmation extends Component {
     constructor(props) {
         super(props);
 
@@ -16,7 +17,7 @@ class Example extends React.Component {
     }
 
     validateToken = (token) => {
-        if (token.lenght==0) {
+        if (token.lenght == 0) {
             return false
         } else {
             return true
@@ -24,7 +25,7 @@ class Example extends React.Component {
     }
 
     handleSubmit = (token) => {
-        if(this.validateToken(token)) {
+        if (this.validateToken(token)) {
             this.submitData(token)
         } else {
             alert('Please Enter a valid Token')
@@ -46,14 +47,14 @@ class Example extends React.Component {
                 'Content-Type': 'application/json'
             }
         })
-        .then((result) => {
-            this.setState({ auth: true, show:false })
-            alert('Registration Completed')
-        })
+            .then((result) => {
+                this.setState({ auth: true, show: false })
+                alert('Registration Completed')
+            })
     }
 
-    render() {       
-        const{show, token}=this.state
+    render() {
+        const { show, token } = this.state
         return (
             <div className="container">
                 <div className="col-md-6 col-md-offset-3">
@@ -89,4 +90,4 @@ class Example extends React.Component {
     }
 }
 
-export default Example;
+export default Confirmation;

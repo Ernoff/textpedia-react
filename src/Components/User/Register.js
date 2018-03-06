@@ -1,5 +1,10 @@
 import React, { Component } from 'react'
 import { FormGroup, FormControl, ControlLabel, Button, Modal, Well } from "react-bootstrap";
+import { endpoint_url, isValidEmail } from '../../utils/index'
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { browserHistory } from 'react-router'
+
+
 // import ProgressButton from 'react-progress-button'
 import axios from 'axios';
 // import request from 'superagent';
@@ -19,17 +24,25 @@ class CreateUser extends Component {
             email: '',
             phoneNumber: '',
             error: '',
-            show: false
+            show: false,
+            jwt: undefined
         }        
     }
 
-    // getValidationState = () => {
-    //     const length = this.state.phonenumber.length;
-    //     if (length > 10) return 'success';
-    //     else if (length > 5) return 'warning';
-    //     else if (length > 0) return 'error';
-    //     return null;
-    // }
+    getValidationState = (email, phoneNumber) => {
+        if (email.length==0) {
+            alert('Email can not be empty')
+            return false
+        } else if (!isValidEmail.test(email)) {
+            alert('Enter a Valid Email Address')
+            return false
+        }else if(phoneNumber.length==0) {
+            alert('Enter a Valid Phone Number')
+            return false
+        }else{
+            return true
+        }
+    }
 
     handleChangePhone = (e) => {
         this.setState({ phoneNumber: e.target.value });
@@ -48,6 +61,7 @@ class CreateUser extends Component {
     }
 
     render() {
+        const { show, phoneNumber, email } = this.state
         return (
             <div className="container">
                 <div className="col-md-6 col-md-offset-3">
@@ -104,7 +118,7 @@ class CreateUser extends Component {
         )
     }
 
-    _createUser =  () => {
+    _createUser = () => {
         console.log("submitting")
         const { 
             email,
@@ -122,8 +136,7 @@ class CreateUser extends Component {
     // )
 
         console.log(data)
-        let url = 'https://textpedia-api.herokuapp.com/submit'        
-        axios.post(url, data, {
+        axios.post(endpoint_url, data, {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
@@ -134,9 +147,16 @@ class CreateUser extends Component {
         })
         .then((result) => {            
             console.log(result.response.data)
+            // this.props.browserHistory.push('/Confirmation', { result: result.data.jwt })
+            // history.push('/confirmation')
+            // const path = '/confirmation'
+            // browserHistory.push(path)
+            this.setState({ show: false })
         })
         .catch((err) => {
             console.log(err.response.data)
+            alert('Please Email and Phone Number Must be Unique')
+            this.setState({ show: false })
         });
     }
 }
