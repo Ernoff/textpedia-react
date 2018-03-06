@@ -136,7 +136,7 @@ class CreateUser extends Component {
             console.log(result.response.data)
         })
         .catch((err) => {
-            console.log(err.response.data)
+            console.log(err)
         });
     }
 }
