@@ -11,7 +11,7 @@ class Confirmation extends Component {
             show: false,
             token: '',
             auth: false,
-            error: ''
+            error: undefined,
         };
         this.handleChangeToken = this.handleChangeToken.bind(this);
 
@@ -19,10 +19,10 @@ class Confirmation extends Component {
 
     validateToken = (token) => {
         if (token.length === 0) {
-            alert('Please Enter your token')
+            this.setState({ error: 'Please Enter your token'})
             return false
         } else if (token.length < 28) {
-            alert('Invalid Token entered, Token must be 28 character long')
+            this.setState({ error: 'Invalid Token entered, Token must be 28 character long' })
             return false
         } else {
             return true
@@ -37,15 +37,16 @@ class Confirmation extends Component {
         if (this.validateToken(token)) {
             this.submitData(token)
         } else {
-            alert('Please Enter a valid Token')
+            
+            this.setState({ error: 'Please Enter a valid Token' })
         }
     }
 
     expiredToken = (message) => {
         if (message === 'retry in 2 hours') {
-            alert('Expired OTP, please retry in 2 hours' + message)
+            this.setState({ error: 'Expired OTP, please retry in 2 hours' + message })
         } else {
-            alert('an Error has occured, please try again later')
+            this.setState({ error: 'an Error has occured, please try again later' })
         }
     }
 
@@ -70,37 +71,47 @@ class Confirmation extends Component {
                 'Access-Control-Allow-Headers': 'Content-Type, Accept, Access-Control-Allow-Origin'
             }
         })
-        .then((result) => {
-            this.setState({ auth: true, show: false })
-            this.props.history.push('/success')
-        })
-        .catch((err) => {
-            alert(err.response.data)
-            this.setState({ show: false })
-        })
+            .then((result) => {
+                this.setState({ auth: true, show: false })
+                this.props.history.push('/success')
+            })
+            .catch((err) => {
+                this.setState({ error: err.response.data, show: false })
+
+            })
     }
 
     render() {
         return (
             <span className="uk-form-stacked">
-                <img className="logo" src={img.logo2} alt="" />
-                <h1>Confirmation</h1>
-                <p><small style={{ color: 'red' }}>**An Email been sent to you, Enter token provided**</small></p>
+                {this.state.error === undefined ?
+                    <div>
+                        <img className="logo" src={img.logo2} alt="" />
+                        <h1>Confirmation</h1>
+                        <small style={{ color: 'red' }}>**An Email was sent, Enter token provided**</small>
 
-                <div className="uk-margin">
-                    <label className="uk-form-label">Enter Token</label>
-                    <div className="uk-form-controls">
-                        <input className="uk-input" type="text" 
-                            placeholder="Enter Token"
-                            value={this.state.value}
-                            onChange={this.handleChangeToken} />
+                        <div className="uk-margin">
+                            <label className="uk-form-label">Enter Token</label>
+                            <div className="uk-form-controls">
+                                <input className="uk-input" type="text"
+                                    placeholder="Enter Token"
+                                    value={this.state.value}
+                                    onChange={this.handleChangeToken} />
+                            </div>
+                        </div>
+                        <div className="uk-margin">
+                            {this.state.show ? <PulseLoader color="#000000" size="16px" margin="4px" /> : <button className="uk-button uk-text-capitalize button uk-button-secondary" onClick={() => this.submitData()}>Submit</button>}
+                        </div>
                     </div>
-                </div>
-                <div className="uk-margin">
-                    
-                    {this.state.show ? <PulseLoader color="#000000" size="16px" margin="4px" /> : <button className="uk-button uk-text-capitalize button uk-button-secondary" onClick={() => this.submitData()}>Submit</button>}
-                </div>
-            </span> 
+                    :
+                    <div>
+                        <div className="uk-card uk-card-default uk-card-small uk-card-body">
+                            <h3 className="uk-card-title">Error</h3>
+                            <p>{this.state.error}</p>
+                            <button className="uk-button uk-text-capitalize button uk-button-secondary" onClick={() => this.setState({ error: undefined })}>Okay</button>
+                        </div>
+                    </div>}
+            </span>
         );
     }
 }
