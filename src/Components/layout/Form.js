@@ -115,7 +115,7 @@ class Form extends Component {
                 if (err.response.status === 409) {
                     alert(err.response.data)
                 } else {
-                    alert('Ops... Server error occured')
+                    alert('Ops... Something went wrong')
                 }
 
                 this.setState({ show: false })
