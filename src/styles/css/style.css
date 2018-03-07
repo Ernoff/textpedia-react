@@ -1,0 +1,194 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+* {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  font-family: "Lato", sans-serif !important;
+}
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+svg {
+  position: relative;
+}
+
+.hide {
+  display: none;
+}
+
+@-webkit-keyframes mymove {
+  from {
+    background-position: 0px -100px;
+  }
+  to {
+    background-position: 70px -100px;
+  }
+}
+
+@keyframes mymove {
+  from {
+    background-position: 0px -100px;
+  }
+  to {
+    background-position: 70px -100px;
+  }
+}
+.bg {
+  position: absolute;
+  background-image: url(../img/bg.jpg);
+  background-size: cover;
+  height: 90vh;
+  background-position: right center;
+  width: 100%;
+  -webkit-animation-name: mymove;
+          animation-name: mymove;
+  -webkit-animation-duration: 5s;
+          animation-duration: 5s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+          box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.side {
+  background-color: #111111;
+  height: 100vh;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 60%, 30% 100%, 0% 90%);
+          clip-path: polygon(0 0, 100% 0, 100% 60%, 30% 100%, 0% 90%);
+}
+
+#signupbtn {
+  color: white;
+  text-decoration: none;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 20% 100%);
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 20% 100%);
+  background-color: #131313;
+  padding: 20px 20px 20px 80px;
+}
+
+.logo {
+  width: 150px;
+  display: block;
+}
+
+.side p {
+  margin-top: 60px;
+  color: white;
+  font-weight: 600;
+  color: #474747;
+  display: inline-block;
+  border-bottom: 2px solid white;
+  padding-bottom: 15px;
+}
+
+.side h2 {
+  margin-top: 20px;
+  color: white;
+  font-size: 58px;
+  line-height: 54px;
+  letter-spacing: -2px;
+  font-weight: 100;
+  font-family: 'Lato', sans-serif;
+}
+
+#more {
+  text-decoration: none;
+  color: white;
+  padding: 12px 15px;
+  display: inline-block;
+  margin-top: 30px;
+  border: 2px solid white;
+  font-family: sans-serif !important;
+}
+
+#more:hover {
+  color: black;
+  background-color: white;
+}
+
+.form {
+  background-color: rgba(255, 255, 255, 0.725);
+  position: relative;
+  top: 40%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.11), 0 10px 10px rgba(0, 0, 0, 0);
+          box-shadow: 0 14px 28px rgba(0, 0, 0, 0.11), 0 10px 10px rgba(0, 0, 0, 0);
+}
+
+@media (max-width: 596px) {
+  .side {
+    padding: 40px 90px !important;
+  }
+}
+@media (max-width: 560px) {
+  .side {
+    padding: 40px 40px !important;
+  }
+
+  .side h2 {
+    font-size: 35px;
+  }
+}
+@media (min-width: 600px) {
+  .side {
+    padding: 40px 150px !important;
+  }
+}
+.uk-navbar-nav > li > a {
+  line-height: 10vh;
+  height: 10vh;
+  color: #222222;
+}
+
+.uk-navbar-nav > .uk-active > a {
+  color: #000 !important;
+}
+
+nav {
+  background-color: transparent !important;
+}

@@ -1,13 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './assets/css/index.css';
-// import 'bootstrap/dist/css/bootstrap.css';
-// import 'react-flags-select/css/react-flags-select.css';
-import App from './Components/App';
-import registerServiceWorker from './registerServiceWorker';
-// import { BrowserRouter } from 'react-router-dom';
+// import './index.css';
+import './assets/css/style.css';
+import './assets/css/uikit.min.css';
 
-ReactDOM.render(
-    <App />,
-document.getElementById('root'));
+import App from './App';
+import registerServiceWorker from './registerServiceWorker';
+
+ReactDOM.render(<App />, document.getElementById('root'));
 registerServiceWorker();
