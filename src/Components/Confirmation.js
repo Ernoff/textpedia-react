@@ -87,8 +87,8 @@ class Confirmation extends Component {
                 {this.state.error === undefined ?
                     <div>
                         <img className="logo" src={img.logo2} alt="" />
-                        <h1>Confirmation</h1>
-                        <small style={{ color: 'red' }}>**An Email was sent, Enter token provided**</small>
+                        <h1>Verification</h1>
+                        <small style={{ color: 'red' }}> We have sent you an email with your auth token. Enter it here.</small>
 
                         <div className="uk-margin">
                             <label className="uk-form-label">Enter Token</label>
