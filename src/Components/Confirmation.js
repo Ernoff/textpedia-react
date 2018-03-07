@@ -88,7 +88,7 @@ class Confirmation extends Component {
                     <div>
                         <img className="logo" src={img.logo2} alt="" />
                         <h1>Verification</h1>
-                        <small style={{ color: 'red' }}> We have sent you an email with your auth token. Enter it here.</small>
+                        <small style={{ color: 'red' }}> We have sent you an email with your auth token.</small>
 
                         <div className="uk-margin">
                             <label className="uk-form-label">Enter Token</label>
