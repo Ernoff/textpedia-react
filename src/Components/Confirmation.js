@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from 'axios'
 import { endpoint_url } from '../utils/index'
 import * as img from "../assets/img";
+import { PulseLoader } from 'halogenium'
 
 class Confirmation extends Component {
     constructor(props) {
@@ -84,6 +85,7 @@ class Confirmation extends Component {
             <span className="uk-form-stacked">
                 <img className="logo" src={img.logo2} alt="" />
                 <h1>Confirmation</h1>
+                <p><small style={{ color: 'red' }}>**An Email been sent to you, Enter token provided**</small></p>
 
                 <div className="uk-margin">
                     <label className="uk-form-label">Enter Token</label>
@@ -95,7 +97,8 @@ class Confirmation extends Component {
                     </div>
                 </div>
                 <div className="uk-margin">
-                    <button className="uk-button uk-text-capitalize button uk-button-secondary" onClick={() => this.submitData()}>Submit</button>
+                    
+                    {this.state.show ? <PulseLoader color="#000000" size="16px" margin="4px" /> : <button className="uk-button uk-text-capitalize button uk-button-secondary" onClick={() => this.submitData()}>Submit</button>}
                 </div>
             </span> 
         );

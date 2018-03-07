@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { endpoint_url, isValidEmail } from '../../utils/index';
 import axios from 'axios';
 import * as img from "../../assets/img";
+import { PulseLoader } from 'halogenium'
 
 
 class Form extends Component {
@@ -41,8 +42,9 @@ class Form extends Component {
     handleChangeEmail = (e) => {
         this.setState({ email: e.target.value });
     }
-
-  render() {      
+       
+  render() { 
+      
     return (
       
         <span className="uk-form-stacked">
@@ -69,7 +71,7 @@ class Form extends Component {
                 </div>
             </div>
             <div className="uk-margin">
-                <button className="uk-button uk-text-capitalize button uk-button-secondary" onClick={() => this._createUser()}>Sign up</button>
+                {this.state.show ? <PulseLoader color="#000000" size="16px" margin="4px" /> : <button className="uk-button uk-text-capitalize button uk-button-secondary" onClick={() => this._createUser()}>Sign up</button>}
             </div>
         </span> 
       
@@ -77,7 +79,7 @@ class Form extends Component {
   }
 
     _createUser = () => {
-        
+         this.setState({ show: true })
         const {
             email,
             phoneNumber
@@ -92,7 +94,7 @@ class Form extends Component {
                 }
             }
         // )
-
+        
         
         axios.post(endpoint_url + 'submit', data, {
             headers: {
