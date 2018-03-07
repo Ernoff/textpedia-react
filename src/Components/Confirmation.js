@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from 'axios'
 import { endpoint_url } from '../utils/index'
 import * as img from "../assets/img";
-import { PulseLoader } from 'halogenium'
+import { PulseLoader } from 'halogenium';
 
 class Confirmation extends Component {
     constructor(props) {
@@ -14,10 +14,9 @@ class Confirmation extends Component {
             error: undefined,
         };
         this.handleChangeToken = this.handleChangeToken.bind(this);
-
     }
-
-    validateToken = (token) => {
+   
+ validateToken = (token) => {
         if (token.length === 0) {
             this.setState({ error: 'Please Enter your token'})
             return false

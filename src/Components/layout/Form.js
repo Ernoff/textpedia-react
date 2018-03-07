@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import { endpoint_url, isValidEmail } from '../../utils/index';
 import axios from 'axios';
 import * as img from "../../assets/img";
+import '../../assets/css/default.css'
 import { PulseLoader } from 'halogenium'
+import ReactTelInput from 'react-telephone-input'
+// import ReactTelInput from 'react-telephone-input/lib/withStyles'
 
 
 class Form extends Component {
@@ -19,7 +22,11 @@ class Form extends Component {
             show: false
         }
     }
-
+    componentDidMount() {
+        let element = document.getElementsByTagName('input')[0];
+        element.classList.remove('form-control')
+        element.classList.add('uk-input')
+    }   
     getValidationState = (email, phoneNumber) => {
         if (email.length === 0) {
             alert('Email can not be empty')
@@ -35,8 +42,9 @@ class Form extends Component {
         }
     }
 
-    handleChangePhone = (e) => {
-        this.setState({ phoneNumber: e.target.value });
+    handleChangePhone = (telNumber) => {
+        let tel = telNumber.replace("-", "").replace(/\s/g, "")
+        this.setState({ phoneNumber: tel });
     }
 
     handleChangeEmail = (e) => {
@@ -55,10 +63,14 @@ class Form extends Component {
                         <div className="uk-margin">
                             <label className="uk-form-label">Phone Number</label>
                             <div className="uk-form-controls">
-                                <input className="uk-input" type="text"
-                                    value={this.state.value}
-                                    placeholder="Enter Phone Number"
-                                    onChange={this.handleChangePhone} />
+                               <ReactTelInput
+                               className="uk-form-controls"
+                               value={this.state.value}
+                               defaultCountry="us"
+                               flagsImagePath={img.flags}
+                               preferredCountries={['us', 'uk', 'ca', 'ng']}
+                               onChange={this.handleChangePhone}
+                               />
                             </div>
                         </div>
 
