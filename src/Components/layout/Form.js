@@ -57,7 +57,6 @@ class Form extends Component {
             <span className="uk-form-stacked">
                 {this.state.error === undefined ?
                     <div>
-                        <img className="logo" src={img.logo2} alt="" />
                         <h1>Sign Up</h1>
 
                         <div className="uk-margin">

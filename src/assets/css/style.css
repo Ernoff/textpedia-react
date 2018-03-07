@@ -77,21 +77,16 @@ svg {
   position: absolute;
   background-image: url(../img/bg.jpg);
   background-size: cover;
-  height: 90vh;
+  height: 95vh;
   background-position: right center;
   width: 100%;
-  -webkit-animation-name: mymove;
-          animation-name: mymove;
-  -webkit-animation-duration: 5s;
-          animation-duration: 5s;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
-  -webkit-animation-direction: alternate;
-          animation-direction: alternate;
-  -webkit-animation-timing-function: linear;
-          animation-timing-function: linear;
   -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
           box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.side h1{
+  color:white;
+  padding-top: 80px;
 }
 
 .side {
@@ -101,13 +96,15 @@ svg {
           clip-path: polygon(0 0, 100% 0, 100% 60%, 30% 100%, 0% 90%);
 }
 
-#signupbtn {
-  color: white;
-  text-decoration: none;
+.sign {
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 20% 100%);
           clip-path: polygon(0 0, 100% 0, 100% 100%, 20% 100%);
-  background-color: #131313;
-  padding: 20px 20px 20px 80px;
+  background-color: #131313!important;
+}
+
+.sign a{
+  text-decoration: none;
+  font-family: sans-serif!important;
 }
 
 .logo {
@@ -116,7 +113,7 @@ svg {
 }
 
 .side p {
-  margin-top: 60px;
+  margin-top: 10px;
   color: white;
   font-weight: 600;
   color: #474747;
@@ -131,7 +128,7 @@ svg {
   font-size: 58px;
   line-height: 54px;
   letter-spacing: -2px;
-  font-weight: 100;
+  font-weight: 200;
   font-family: 'Lato', sans-serif;
 }
 
@@ -153,11 +150,15 @@ svg {
 .form {
   background-color: rgba(255, 255, 255, 0.725);
   position: relative;
-  top: 40%;
+  top: 50%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
   -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.11), 0 10px 10px rgba(0, 0, 0, 0);
           box-shadow: 0 14px 28px rgba(0, 0, 0, 0.11), 0 10px 10px rgba(0, 0, 0, 0);
+}
+
+.form>*{
+  font-weight: 400!important;
 }
 
 @media (max-width: 596px) {
@@ -180,15 +181,25 @@ svg {
   }
 }
 .uk-navbar-nav > li > a {
-  line-height: 10vh;
-  height: 10vh;
-  color: #222222;
+  line-height: 80px;
+  height: 80px;
+  color: #fff!important;
+}
+
+.uk-navbar-nav{
+  padding-left: 50px!important
+}
+
+.uk-input{
+  color: black!important;
+  font-weight: 200;
 }
 
 .uk-navbar-nav > .uk-active > a {
-  color: #000 !important;
+  color: #474747!important;
 }
 
 nav {
-  background-color: transparent !important;
+  background-color: black!important;
+  z-index: 24367;
 }
