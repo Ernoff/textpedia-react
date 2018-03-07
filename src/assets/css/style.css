@@ -137,7 +137,7 @@ svg {
   color: white;
   padding: 12px 15px;
   display: inline-block;
-  margin-top: 30px;
+  margin-top: 15px;
   border: 2px solid white;
   font-family: sans-serif !important;
 }
@@ -145,6 +145,7 @@ svg {
 #more:hover {
   color: black;
   background-color: white;
+  border: black solid 2px;
 }
 
 .form {
@@ -163,7 +164,7 @@ svg {
 
 @media (max-width: 596px) {
   .side {
-    padding: 40px 90px !important;
+    padding: 40px 50px !important;
   }
 }
 @media (max-width: 560px) {
@@ -177,7 +178,7 @@ svg {
 }
 @media (min-width: 600px) {
   .side {
-    padding: 40px 150px !important;
+    padding: 40px 90px !important;
   }
 }
 .uk-navbar-nav > li > a {
