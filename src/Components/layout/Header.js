@@ -23,12 +23,12 @@ class Header extends Component {
                 </div>
             </nav>    
             
-        <div className="side uk-width-2-5@m" data-uk-grid>
-            <h1 className="uk-text-bold">TEXTPEDIA</h1>
-            <p>a <span>TEXT</span>  WIKI<span>PEDIA</span></p>
-            <h2>KNOWLEDGE AT YOUR FINGERTIPS</h2>     
-        </div>
-        <div className="uk-width-3-5@m" >
+            <div className="side uk-width-2-5@m uk-visible@s" data-uk-grid>
+                <h1 className="uk-text-bold">TEXTPEDIA</h1>
+                <p>a <span>TEXT</span>  WIKI<span>PEDIA</span></p>
+                <h2>KNOWLEDGE AT YOUR FINGERTIPS</h2>     
+            </div>
+            <div className="uk-width-3-5@m" >
                 <div className="form uk-card uk-card-body uk-width-4-5@m uk-overflow-hidden uk-align-center">
                     <Switch>
                         <Route exact path="/" component={Home} />

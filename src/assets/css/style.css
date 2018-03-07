@@ -172,8 +172,25 @@ svg {
     padding: 40px 40px !important;
   }
 
+  .form{
+    padding-top: 90px!important;
+  }
+
   .side h2 {
     font-size: 35px;
+  }
+.uk-navbar-nav > li > a {
+  font-size: 10px!important;
+}
+
+}
+@media (max-width: 639px) {
+  .form{
+    padding-top: 90px!important;
+  }
+  .bg{
+    position: fixed!important;
+    height: 100vh;
   }
 }
 @media (min-width: 600px) {
@@ -203,4 +220,10 @@ svg {
 nav {
   background-color: black!important;
   z-index: 24367;
+}
+
+@media (max-width: 1124px){
+  .side h2{
+    font-size: 50px;
+  }
 }
