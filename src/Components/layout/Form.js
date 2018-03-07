@@ -88,6 +88,7 @@ class Form extends Component {
     }
 
     _createUser = () => {
+        this.setState({show:true})
         const {
             email,
             phoneNumber
