@@ -90,10 +90,10 @@ class Confirmation extends Component {
                         <small style={{ color: 'red' }}> We have sent you an email with your auth token.</small>
 
                         <div className="uk-margin">
-                            <label className="uk-form-label">Enter Token</label>
+                            <label className="uk-form-label">Token</label>
                             <div className="uk-form-controls">
                                 <input className="uk-input" type="text"
-                                    placeholder="Enter Token"
+                                    placeholder="Enter auth token"
                                     value={this.state.value}
                                     onChange={this.handleChangeToken} />
                             </div>
