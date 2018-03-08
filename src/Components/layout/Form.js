@@ -43,7 +43,7 @@ class Form extends Component {
     }
 
     handleChangePhone = (telNumber) => {
-        let tel = telNumber.replace("-", "").replace(/\s/g, "")
+        let tel = telNumber.replace(/-/g, "").replace(/\s/g, "")
         this.setState({ phoneNumber: tel });
     }
 
@@ -111,6 +111,7 @@ class Form extends Component {
                 email
             }
         }
+        console.log(data)
 
         axios.post(endpoint_url + 'submit', data, {
             headers: {
