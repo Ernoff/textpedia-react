@@ -42,10 +42,14 @@ class Form extends Component {
         }
     }
 
-    handleChangePhone = (telNumber) => {
-        let tel = telNumber.replace(/-/g, "").replace(/\s/g, "")
-        this.setState({ phoneNumber: tel });
-    }
+    handleChangePhone = (telNumber, countryCode) => {
+        let point = parseInt(countryCode.dialCode, 0).length + 1
+        let code = telNumber.slice(0, point);
+        let strip = telNumber.substr(point).replace(/\b0/, "")
+        let tel = strip.replace(/[-\s()]/g, "")
+        let newFormat = code + tel
+        this.setState({ phoneNumber: newFormat })
+    }    
 
     handleChangeEmail = (e) => {
         this.setState({ email: e.target.value });
@@ -111,7 +115,7 @@ class Form extends Component {
                 email
             }
         }
-        console.log(data)
+        // console.log(data)
 
         axios.post(endpoint_url + 'submit', data, {
             headers: {
