@@ -69,9 +69,9 @@ class Form extends Component {
                                <ReactTelInput
                                className="uk-form-controls"
                                value={this.state.value}
-                               defaultCountry="us"
+                               defaultCountry="ng"
                                flagsImagePath={img.flags}
-                               preferredCountries={['us', 'uk', 'ca', 'ng']}
+                               preferredCountries={['ng', 'uk', 'ca', 'us']}
                                onChange={this.handleChangePhone}
                                />
                             </div>
