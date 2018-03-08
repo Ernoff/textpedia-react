@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from 'axios'
 import { endpoint_url } from '../utils/index'
-import * as img from "../assets/img";
+
 import { PulseLoader } from 'halogenium';
 
 class Confirmation extends Component {
@@ -85,7 +85,6 @@ class Confirmation extends Component {
             <span className="uk-form-stacked">
                 {this.state.error === undefined ?
                     <div>
-                        <img className="logo" src={img.logo2} alt="" />
                         <h1>Verification</h1>
                         <small style={{ color: 'red' }}> We have sent you an email with your auth token.</small>
 
